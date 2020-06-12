@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <h2>Current Schedule</h2>
+  <p>Refer to the schedule below and choose a show time accordingly</p>            
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Sr No</th>
+        <th>Show Time</th>
+        <th>Movie</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in range (0,l) %}
+      <tr>
+        <td>{{i+1}}</td>
+        <td>{{arr2[i]}}</td>
+        <td>{{arr[i]}}</td>        
+      </tr>   
+      {% endfor %}   
+    </tbody>
+  </table>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Add a new show</legend>
+                <div class="form-group">
+                    {{ form.showtime.label(class="form-control-label") }}
+                    
+                        {{ form.showtime(class="form-control form-control-lg") }}
+                   
+                </div>
+                <div class="form-group">
+                    {{ form.moviename.label(class="form-control-label") }}
+                    
+                        {{ form.moviename(class="form-control form-control-lg") }}
+                     
+                </div>
+                
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+
+        </form>
+    </div>
+    
+{% endblock content %}

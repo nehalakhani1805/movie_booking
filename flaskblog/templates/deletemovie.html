@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+  <h2>Current Movies</h2>
+  <p>Refer to the movies below and choose a movie accordingly</p>            
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Sr No</th>
+        
+        <th>Movie</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in range(0,l) %}
+      <tr>
+        <td>{{i+1}}</td>
+        
+        <td>{{arr[i]}}</td>        
+      </tr>   
+      {% endfor %}   
+    </tbody>
+  </table>
+</div>
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Delete a movie</legend>                       
+                <div class="form-group">
+                    {{ form.moviename.label(class="form-control-label") }}
+                    
+                        {{ form.moviename(class="form-control form-control-lg") }}
+                     
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+
+        </form>
+    </div>
+    
+{% endblock content %}
